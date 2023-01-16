@@ -1,0 +1,31 @@
+.accordion-accessible-root {
+  width: 100%;
+}
+
+.accordion-accessible-header {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  width: 100%;
+  background-color: #f4f4f4;
+  border: none;
+  padding-inline: 1rem;
+  padding-block: 0.8rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.accordion-accessible-children {
+  transition: max-height 222ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-top: 1px solid black;
+}
+
+.accordion-accessible-children.accessible-active {
+  border-top: none;
+}
+
+.accordion-accessible-children-inner {
+  padding: 1rem;
+}
