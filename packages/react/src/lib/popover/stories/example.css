@@ -1,0 +1,26 @@
+.popover-example-root {
+  box-shadow: 0px 2px 2px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%);
+  background-color: white;
+  z-index: 1000;
+}
+.popover-example {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: white;
+}
+.popover-example li {
+  padding: 0.4rem 0.8rem;
+}
+.popover-example li:last-child {
+  border-bottom: none;
+}
+.popover-trigger {
+  padding: 0.5rem 0.8rem;
+  width: 300px;
+  text-align: left;
+  background-color: transparent;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
