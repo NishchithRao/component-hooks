@@ -40,6 +40,7 @@ importers:
       nx: 15.4.1
       prettier: ^2.6.2
       react: 18.2.0
+      react-docgen-typescript: ^2.2.2
       react-dom: 18.2.0
       react-icons: ^4.7.1
       react-test-renderer: 18.2.0
@@ -87,6 +88,7 @@ importers:
       lorem-ipsum: 2.0.8
       nx: 15.4.1
       prettier: 2.8.1
+      react-docgen-typescript: 2.2.2_typescript@4.9.4
       react-icons: 4.7.1_react@18.2.0
       react-test-renderer: 18.2.0_react@18.2.0
       url-loader: 3.0.0_webpack@5.75.0

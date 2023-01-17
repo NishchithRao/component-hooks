@@ -39,6 +39,7 @@
     "lorem-ipsum": "^2.0.8",
     "nx": "15.4.1",
     "prettier": "^2.6.2",
+    "react-docgen-typescript": "^2.2.2",
     "react-icons": "^4.7.1",
     "react-test-renderer": "18.2.0",
     "url-loader": "^3.0.0"
