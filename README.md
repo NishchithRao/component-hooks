@@ -2,4 +2,4 @@
 
 ## Libraries
 
-### [Component Hooks](/packages/react/README.md)
+### [Component Hooks](/packages/react)
