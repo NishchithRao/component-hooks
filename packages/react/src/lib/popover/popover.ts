@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useCombinedRefs, convertToPixels } from '../../utils';
 import { useDrawer } from '../drawer';
-import { useOverlay } from '../overlay';
 
 export type PositionTypes =
   | 'top-left'
