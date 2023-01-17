@@ -3,15 +3,25 @@ import { useTrigger } from '../trigger/trigger';
 
 export interface UseDrawerProps {
   orientation: 'vertical' | 'horizontal';
-  onStateChange?: (active: boolean) => void;
-  activeClass?: string;
+  /**
+   * Classname to be applied when an accordion is open
+   */
+  activeClassName?: string;
+  /**
+   * Programatically control the accordion. Determines whether an accordion is open or closed.
+   */
   active?: boolean;
+  /**
+   * Callback fired when an accordion is open/closed.
+   * @param state - The state of the accordion
+   */
+  onStateChange?: (state: boolean) => void;
 }
 
 export const useDrawer = ({
   orientation,
   onStateChange,
-  activeClass,
+  activeClassName,
   active,
 }: UseDrawerProps) => {
   const [drawerPanelRef, setDrawerPanelRef] = useState<HTMLDivElement | null>(
@@ -42,12 +52,12 @@ export const useDrawer = ({
       drawerPanelRef.style[property] = panelDimension + 'px';
 
       setTimeout(() => (drawerPanelRef.style[property] = 'fit-content'), 100);
-      if (activeClass) drawerPanelRef.classList.toggle(activeClass);
+      if (activeClassName) drawerPanelRef.classList.toggle(activeClassName);
     } else {
       if (drawerPanelRef) {
         drawerPanelRef.style[property] = panelDimension + 'px';
         setTimeout(() => {
-          if (activeClass) drawerPanelRef.classList.toggle(activeClass);
+          if (activeClassName) drawerPanelRef.classList.toggle(activeClassName);
           drawerPanelRef.style[property] = '0px';
           setOpen(false);
         }, 100);
