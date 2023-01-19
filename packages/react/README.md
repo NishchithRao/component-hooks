@@ -15,17 +15,17 @@ Super charge your component development with ready to use logic and you UI. Comp
 
 ## Hooks List
 
-1. [Accordion]("/src/lib/accordion")
-2. [Overlay]("/src/lib/overlay")
-3. [Popover]("/src/lib/popover") (WIP)
-4. [Sidepanel]("/src/lib/sidepanel")
+1. [Accordion](src/lib/accordion)
+2. [Overlay](src/lib/overlay")
+3. [Popover](src/lib/popover) (WIP)
+4. [Sidepanel](src/lib/sidepanel)
 
 More coming soon!
 
 ## Helper hooks
 
-1. [Drawer]("/src/lib/drawer")
-1. [Trigger]("/src/lib/trigger")
+1. [Drawer](src/lib/drawer)
+1. [Trigger](src/lib/trigger)
 
 # Upcoming Features
 1. dropdown list
