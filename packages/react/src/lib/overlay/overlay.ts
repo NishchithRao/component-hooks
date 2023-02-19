@@ -1,12 +1,8 @@
 import { useState, useCallback, useEffect } from 'react';
-import { closeWithEscapeKey } from 'src/utils';
+import { useEscapeKey } from '../../utils';
 import { useTrigger } from '../trigger/trigger';
+import { OverlayProps } from './overlay.interface';
 
-export interface OverlayProps {
-  brightness?: '0' | '2' | '4' | '6' | '8' | '10';
-  active?: boolean;
-  onStateChanged?: (active: boolean) => void;
-}
 export const useOverlay = ({
   brightness = '2',
   onStateChanged,
@@ -59,7 +55,7 @@ export const useOverlay = ({
       }, 100);
     }
   };
-  closeWithEscapeKey(document, () => {
+  useEscapeKey(document, () => {
     closeOverlay(drawerPanelRef);
     onStateChanged?.(false);
   });
