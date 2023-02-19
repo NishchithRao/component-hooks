@@ -1,12 +1,17 @@
-import type { StorybookConfig } from '@storybook/core-common';
+import type { StorybookConfig, Options } from '@storybook/core-common';
 
-export const rootMain: StorybookConfig = {
-  stories: [],
-  addons: ['@storybook/addon-essentials'],
-  // webpackFinal: async (config, { configType }) => {
-  //   // Make whatever fine-grained changes you need that should apply to all storybook configs
+const config: StorybookConfig = {
+  core: { builder: 'webpack5' },
+  stories: [
+    '../src/lib/**/*.stories.mdx',
+    '../src/lib/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
+  addons: ['@storybook/addon-essentials', '@nrwl/react/plugins/storybook'],
+  webpackFinal: async (config, { configType }: Options) => {
+    // add your own webpack tweaks if needed
 
-  //   // Return the altered config
-  //   return config;
-  // },
+    return config;
+  },
 };
+
+module.exports = config;
