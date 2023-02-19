@@ -1,4 +1,4 @@
-import { PopoverProps, usePopover } from '../popover';
+import { PopoverProps, usePopover } from '../';
 import './example.css';
 import ReactDOM from 'react-dom';
 
@@ -21,9 +21,9 @@ export const Basic = ({ position, gap }: PopoverProps) => {
       {ReactDOM.createPortal(
         <div className="popover-example-root" ref={panelRef}>
           <ul className="popover-example">
-            <li>Three</li>
-            <li>Two</li>
-            <li>One</li>
+            <li tabIndex={0}>Three</li>
+            <li tabIndex={0}>Two</li>
+            <li tabIndex={0}>One</li>
           </ul>
         </div>,
         document.body
