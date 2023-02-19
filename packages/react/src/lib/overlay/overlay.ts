@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
+import { closeWithEscapeKey } from 'src/utils';
 import { useTrigger } from '../trigger/trigger';
 
 export interface OverlayProps {
@@ -36,7 +37,7 @@ export const useOverlay = ({
         const brightnessValue = (parseInt(brightness) / 10).toFixed(1);
 
         if (ref) {
-          ref.style.position = 'absolute';
+          ref.style.position = 'fixed';
           ref.style.left = '0px';
           ref.style.top = '0px';
           ref.style.height = '100vh';
@@ -58,22 +59,10 @@ export const useOverlay = ({
       }, 100);
     }
   };
-  const keyListener = useCallback(
-    (ev: KeyboardEvent) => {
-      if (ev.key === 'Escape') {
-        closeOverlay(drawerPanelRef);
-        onStateChanged?.(false);
-      }
-    },
-    [drawerPanelRef]
-  );
-
-  useEffect(() => {
-    document?.addEventListener('keydown', keyListener);
-    return () => {
-      document?.removeEventListener('keydown', keyListener);
-    };
-  }, [drawerPanelRef, keyListener]);
+  closeWithEscapeKey(document, () => {
+    closeOverlay(drawerPanelRef);
+    onStateChanged?.(false);
+  });
 
   const trigger = useCallback(() => {
     setOpen(!open);

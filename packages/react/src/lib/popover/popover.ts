@@ -1,30 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useCombinedRefs, convertToPixels } from '../../utils';
+import {
+  useCombinedRefs,
+  convertToPixels,
+  useEscapeKey,
+  toggleFocus,
+  getFocusableELements,
+} from '../../utils';
 import { useDrawer } from '../drawer';
-
-export type PositionTypes =
-  | 'top-left'
-  | 'top-center'
-  | 'top-right'
-  | 'bottom-left'
-  | 'bottom-center'
-  | 'bottom-right';
-
-export interface PopoverProps {
-  active?: boolean;
-  position: PositionTypes;
-  gap?: number;
-  onStateChanged?: (active: boolean) => void;
-}
-
-type Positions = {
-  [positon in PositionTypes]: {
-    top?: number;
-    left?: number;
-    right?: number;
-    bottom?: number;
-  };
-};
+import { PopoverProps, Positions, PositionTypes } from './popover.interface';
 
 export const usePopover = ({
   position = 'bottom-center',
@@ -39,12 +22,24 @@ export const usePopover = ({
     active: open,
   });
 
-  const [positions, setPositions] = useState<Positions>();
+  const flipPositions = {
+    top: 'bottom',
+    left: 'right',
+  };
+
+  const [positions, setPositions] = useState<
+    Positions & {
+      flip?: string[];
+    }
+  >();
   const [currentPosition, setCurrentPosition] =
     useState<PositionTypes>('bottom-center');
 
   const combinedPanelRef = useCombinedRefs(panelRef);
   const combinedTriggerRef = useCombinedRefs(triggerRef);
+
+  useEscapeKey(document, () => setOpen(false));
+  toggleFocus(open, getFocusableELements(combinedPanelRef.current)[0]);
 
   const setAllPositions = () => {
     if (combinedTriggerRef.current && combinedPanelRef.current) {
@@ -52,6 +47,7 @@ export const usePopover = ({
         top: triggerTop,
         right: triggerRight,
         bottom: triggerBottom,
+        height: triggerHeight,
         left: triggerLeft,
         width: triggerWidth,
       } = combinedTriggerRef.current.getBoundingClientRect();
@@ -59,6 +55,16 @@ export const usePopover = ({
       const { scrollHeight: panelHeight, scrollWidth: panelWidth } =
         combinedPanelRef.current;
       const centerPosition = triggerLeft + triggerWidth / 2 - panelWidth / 2;
+      const windowHeight = window.innerHeight;
+
+      const topAvailable =
+        triggerTop + panelHeight >
+        windowHeight - (triggerBottom + triggerHeight);
+      const leftAvailable = triggerLeft + panelWidth > triggerRight;
+
+      const hasFlip = [!topAvailable && 'top', !leftAvailable && 'left'].filter(
+        (i) => !!i
+      );
 
       combinedPanelRef.current.style.minWidth = convertToPixels(triggerWidth);
 
@@ -87,6 +93,7 @@ export const usePopover = ({
           top: triggerTop - panelHeight - gap,
           left: centerPosition,
         },
+        flip: hasFlip as string[],
       });
     }
   };
@@ -96,8 +103,12 @@ export const usePopover = ({
   }, [combinedPanelRef, combinedTriggerRef, open]);
 
   useEffect(() => {
-    setCurrentPosition(position);
-  }, [position]);
+    let decided = position as string;
+    positions?.flip?.forEach((pos) => {
+      decided = decided.replace(pos, (flipPositions as any)[pos]);
+    });
+    setCurrentPosition(decided as PositionTypes);
+  }, [position, positions]);
 
   useEffect(() => {
     setOpen(active);
