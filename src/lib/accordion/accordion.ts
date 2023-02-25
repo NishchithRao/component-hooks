@@ -1,4 +1,4 @@
-import { useDrawer, UseDrawerProps } from '../drawer/drawer';
+import { useDrawer, UseDrawerProps } from '../drawer';
 
 export interface useAccordionProps
   extends Omit<UseDrawerProps, 'orientation'> {}
