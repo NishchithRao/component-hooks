@@ -53,7 +53,7 @@ export const useMutationObserver = (
  * @param cb The callback to fire when the escape key is pressed.
  */
 export const useEscapeKey = (
-  element: HTMLElement | Document,
+  element: HTMLElement | Document | null,
   cb: () => void
 ) => {
   useEffect(() => {
@@ -63,7 +63,7 @@ export const useEscapeKey = (
       }
     };
     element?.addEventListener('keydown', handler);
-    return () => element.removeEventListener('keydown', handler);
+    return () => element?.removeEventListener('keydown', handler);
   }, [element]);
 };
 

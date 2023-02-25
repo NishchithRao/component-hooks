@@ -41,6 +41,7 @@ export const useOverlay = ({
           ref.style.backgroundColor = `rgba(0,0,0, ${brightnessValue})`;
           ref.style.visibility = 'hidden';
           ref.style.zIndex = '90';
+          ref.style.minHeight = '100%';
         }
       }
     },
@@ -55,7 +56,7 @@ export const useOverlay = ({
       }, 100);
     }
   };
-  useEscapeKey(document, () => {
+  useEscapeKey(typeof document == 'undefined' ? null : document, () => {
     closeOverlay(drawerPanelRef);
     onStateChanged?.(false);
   });
