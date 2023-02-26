@@ -1,0 +1,39 @@
+@use '@carbon/layout';
+
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: layout.$spacing-06;
+
+  h1 {
+    font-weight: 400;
+  }
+
+  .desktop-nav {
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  .content {
+    padding-left: layout.$spacing-06;
+    padding-right: layout.$spacing-10;
+    .description {
+      margin-block: layout.$spacing-06;
+    }
+    :global {
+      div[role='tabpanel'] {
+        margin-top: layout.$spacing-06;
+      }
+    }
+    @media (max-width: 600px) {
+      padding-left: layout.$spacing-03;
+      padding-right: layout.$spacing-06;
+    }
+    div[role='treegrid'] {
+      max-width: 100vw;
+      overflow-x: auto;
+    }
+  }
+}
