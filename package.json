@@ -10,7 +10,8 @@
     }
   },
   "scripts": {
-    "build-docs": "cd docs && npm run build"
+    "build-docs": "cd docs && npm run build",
+    "postinstall": "cd docs && npm install"
   },
   "devDependencies": {
     "@babel/core": "7.12.13",
