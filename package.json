@@ -9,6 +9,9 @@
       "require": "./index.js"
     }
   },
+  "scripts": {
+    "build-docs": "cd docs && npm run build"
+  },
   "devDependencies": {
     "@babel/core": "7.12.13",
     "@babel/preset-react": "^7.14.5",
