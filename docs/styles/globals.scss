@@ -35,11 +35,9 @@ a {
   }
 }
 
-.page-header {
-  .header-text {
-    @media (max-width: 600px) {
-      display: none !important;
-    }
+.header-text {
+  @media (max-width: 600px) {
+    display: none !important;
   }
 }
 
