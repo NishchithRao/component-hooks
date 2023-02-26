@@ -10,8 +10,7 @@
     }
   },
   "scripts": {
-    "build-docs": "cd docs && npm run build",
-    "postinstall": "cd docs && npm install --legacy-peer-deps"
+    "build-docs": "cd docs && npm run build"
   },
   "devDependencies": {
     "@babel/core": "7.12.13",
