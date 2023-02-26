@@ -67,7 +67,7 @@ const Component = ({ name, json, links }: ComponentProps) => {
             <Tabs id="component">
               <TabList>
                 <Tab>Overview</Tab>
-                <Tab>Props</Tab>
+                {items.length && <Tab>Props</Tab>}
                 <Tab>Usage Examples</Tab>
               </TabList>
               <TabPanel>
@@ -91,14 +91,16 @@ const Component = ({ name, json, links }: ComponentProps) => {
                   </Section>
                 </div>
               </TabPanel>
-              <TabPanel>
-                <TableTree
-                  columns={[Title, Description, Type, DefaultValue]}
-                  headers={['Title', 'Description', 'Type', 'Default Value']}
-                  columnWidths={widths}
-                  items={items}
-                />
-              </TabPanel>
+              {items.length && (
+                <TabPanel>
+                  <TableTree
+                    columns={[Title, Description, Type, DefaultValue]}
+                    headers={['Title', 'Description', 'Type', 'Default Value']}
+                    columnWidths={widths}
+                    items={items}
+                  />
+                </TabPanel>
+              )}
               <TabPanel>
                 <div className="vertical-stack">
                   <h3>Basic Example</h3>
