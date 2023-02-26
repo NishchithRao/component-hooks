@@ -1,5 +1,5 @@
 name: Build and Deploy Docs
-on: 'workflow-dispatch'
+on: 'workflow_dispatch'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
