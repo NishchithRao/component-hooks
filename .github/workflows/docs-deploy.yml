@@ -13,7 +13,7 @@ jobs:
           npm install
       - name: Install and Build Docs 🔧
         run: |
-          npm install
+          npm install --legacy-peer-deps
           npm run build
         working-directory: ./docs
       - name: Deploy 🚀
