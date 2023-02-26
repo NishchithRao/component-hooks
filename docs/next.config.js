@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  basePath: '/component-hooks',
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
