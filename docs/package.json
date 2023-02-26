@@ -2,6 +2,7 @@
   "name": "docs",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://nishchithrao.github.io/component-hooks/",
   "scripts": {
     "dev": "next dev",
     "build-docs": "next build",
