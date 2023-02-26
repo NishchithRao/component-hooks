@@ -12,11 +12,19 @@ import { NavigationLinks } from '../types';
 
 export const ComponentHeader: ComponentType<{}> = () => (
   <p style={{ width: '224px' }} className="header-text">
-    <ButtonItem>Component hooks</ButtonItem>
+    <Link href="/">
+      <ButtonItem>Component Hooks</ButtonItem>
+    </Link>
   </p>
 );
 
-const Header = ({ links }: { links?: NavigationLinks[] }) => {
+const Header = ({
+  links,
+  hideMobileMenu,
+}: {
+  links?: NavigationLinks[];
+  hideMobileMenu?: boolean;
+}) => {
   const { triggerRef, panelRef, overlayPanel } = useSidePanel();
   return (
     <>
@@ -28,11 +36,13 @@ const Header = ({ links }: { links?: NavigationLinks[] }) => {
       <AtlassianNavigation
         label="site"
         primaryItems={[
-          <PrimaryButton
-            className="menu-icon"
-            ref={triggerRef}
-            iconAfter={<Menu fontSize={24} />}
-          />,
+          !hideMobileMenu && (
+            <PrimaryButton
+              className="menu-icon"
+              ref={triggerRef}
+              iconAfter={<Menu fontSize={24} />}
+            />
+          ),
 
           <PrimaryButton>
             <Link href="/accordion">Components</Link>
