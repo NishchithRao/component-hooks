@@ -69,12 +69,14 @@ const Home: NextPage = () => {
               Nishchith Rao
             </a>
           </p>
-          <form action="@mailto=nishchitrao5@gmail.com">
+          <form action="mailto:nishchitrao5@gmail.com">
             <div>
               <small>Get In Touch</small>
               <TextField name="email" type="email" />
             </div>
-            <Button appearance="primary">Send a mail</Button>
+            <Button type="submit" appearance="primary">
+              Send a mail
+            </Button>
           </form>
         </div>
 
