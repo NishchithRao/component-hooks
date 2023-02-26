@@ -2,6 +2,32 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTrigger } from '../trigger/trigger';
 import { UseDrawerProps } from './drawer.interface';
 
+/**
+ * Use this helper hook to expand elements vertically or horizontally. Useful to create
+ * sidepanels and accordions
+ *
+ * @returns
+ * - triggerRef - ref of the element that will toggle the expansion
+ * - panelRef - ref of the content wrapper
+ *
+ * @example
+ * export const Example = () => {
+ *
+ * const { triggerRef, panelRef } = useDrawer({
+ * orientation: 'vertical',
+ * });
+ * return (
+ *  <div className='accordion-root'>
+ *    <button ref={triggerRef} className='drawer-trigger'>
+ *      <span className='accordion-header-tiltle'>Sample Accordion</span>
+ *    </button>
+ *    <div ref={panelRef} className='drawer-panel'>
+ *        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ *    </div>
+ *  </div>
+ * );
+ *};
+ */
 export const useDrawer = ({
   orientation,
   onStateChange,

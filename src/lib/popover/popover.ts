@@ -9,6 +9,44 @@ import {
 import { useDrawer } from '../drawer';
 import { PopoverProps, Positions, PositionTypes } from './popover.interface';
 
+/**
+ * A Popover can be used to display some content on top of another.
+ * Its an alternative to react-popper.
+ *
+ * @default
+ * - position - 'bottom-center
+ * - gap - 0
+ * - active - false
+ *
+ * @returns
+ * - triggerRef - ref of the element that will toggle the popover content visibility
+ * - panelRef - ref of the content wrapper
+ *
+ * @example
+ *  export const Basic = ({ position, gap }: PopoverProps) => {
+ *  const { triggerRef, panelRef } = usePopover({
+ *    position: position,
+ *    gap: gap,
+ *  });
+ *  return (
+ *    <div>
+ *      <button className="popover-trigger" ref={triggerRef}>
+ *        Show Popver
+ *      </button>
+ *      {ReactDOM.createPortal(
+ *        <div className="popover-example-root" ref={panelRef}>
+ *          <ul className="popover-example">
+ *            <li tabIndex={0}>Three</li>
+ *            <li tabIndex={0}>Two</li>
+ *            <li tabIndex={0}>One</li>
+ *          </ul>
+ *        </div>,
+ *        document.body
+ *      )}
+ *  </div>
+ *  );
+ *  };
+ */
 export const usePopover = ({
   position = 'bottom-center',
   gap = 0,

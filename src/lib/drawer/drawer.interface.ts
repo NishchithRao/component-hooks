@@ -1,4 +1,8 @@
 export interface UseDrawerProps {
+  /**
+   * Toggle how the content should appear. Vertical resembles an Accordion and Horizontal
+   * resembles a Sidepanel
+   */
   orientation: 'vertical' | 'horizontal';
   /**
    * Classname to be applied when an accordion is open

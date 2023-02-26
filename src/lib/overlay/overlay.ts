@@ -1,8 +1,35 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useImperativeHandle } from 'react';
 import { useEscapeKey } from '../../utils';
 import { useTrigger } from '../trigger/trigger';
 import { OverlayProps } from './overlay.interface';
 
+/**
+ * Create overlay backgrounds to show pop up content like Modal, Sidepanels.
+ *
+ * @default
+ * - brightness - 2
+ *
+ * @returns
+ * - triggerRef - ref of the element that will toggle the overlay visibility
+ * - panelRef - ref of the content wrapper
+ *
+ * @example
+ * export const Template = (args: OverlayProps) => {
+ * const { triggerRef, panelRef } = useOverlay({ brightness: args.brightness });
+ *
+ * return (
+ *  <div>
+ *    <button ref={triggerRef}>show</button>
+ *    <div
+ *      style={{
+ *        transition: 'all 200ms ease-in',
+ *      }}
+ *      ref={panelRef}
+ *      ></div>
+ *   </div>
+ * );
+ * };
+ */
 export const useOverlay = ({
   brightness = '2',
   onStateChanged,

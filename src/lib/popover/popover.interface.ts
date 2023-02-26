@@ -7,9 +7,23 @@ export type PositionTypes =
   | 'bottom-right';
 
 export interface PopoverProps {
+  /**
+   * Toggle state of the content visiblity
+   */
   active?: boolean;
+  /**
+   * Position content around the trigger
+   */
   position: PositionTypes;
+  /**
+   * Add space between the trigger and the popover
+   */
   gap?: number;
+  /**
+   * Fires whenever the content visibility is toggled
+   * @param active - boolean - state of the content
+   * @returns {void}
+   */
   onStateChanged?: (active: boolean) => void;
 }
 
