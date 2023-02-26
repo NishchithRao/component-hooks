@@ -8,6 +8,7 @@
     "build-docs": "next build",
     "build-export": "next export",
     "build": "run-s docs build-docs build-export",
+    "postbuild": "touch out/.nojekyll",
     "start": "next start",
     "lint": "next lint",
     "docs": "ts-node ./scripts/docgen.ts"
