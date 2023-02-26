@@ -7,6 +7,9 @@
   justify-content: flex-start;
   align-items: center;
 }
+.main h1 {
+  font-weight: lighter;
+}
 
 .footer {
   display: flex;
@@ -52,6 +55,7 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+  font-weight: lighter;
 }
 
 .title,

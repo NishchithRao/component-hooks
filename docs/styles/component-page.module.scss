@@ -6,6 +6,10 @@
   align-items: flex-start;
   gap: layout.$spacing-06;
 
+  h1 {
+    font-weight: 400;
+  }
+
   .desktop-nav {
     @media (max-width: 600px) {
       display: none;
