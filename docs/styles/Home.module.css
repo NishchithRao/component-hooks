@@ -1,6 +1,5 @@
 .main {
-  min-height: 100vh;
-  padding: 4rem 0;
+  padding-top: 4rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -29,7 +28,7 @@
   flex-direction: row;
   gap: 2em;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
 }
 .footer-sections form {
@@ -157,6 +156,6 @@
 }
 .features-section {
   background-color: #f4f5f7;
-  margin: 2em;
+  margin-top: 2em;
   width: 100%;
 }
